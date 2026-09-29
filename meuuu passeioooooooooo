@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uma Noite Mágica | Corinthians x Cruzeiro</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #fff;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CAPA
+        ========================= */
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.72),
+                    rgba(0,0,0,.95)
+                ),
+                radial-gradient(
+                    circle at center,
+                    #444,
+                    #111 45%,
+                    #000 100%
+                );
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "⚽";
+            position: absolute;
+            font-size: 300px;
+            opacity: .035;
+            animation: girar 10s linear infinite;
+        }
+
+        @keyframes girar {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero {
+            width: 100%;
+            max-width: 950px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .foto-principal {
+            width: 100%;
+            max-width: 760px;
+            height: 440px;
+            object-fit: cover;
+
+            border-radius: 22px;
+            border: 3px solid #fff;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.9);
+
+            margin-bottom: 30px;
+        }
+
+        .corinthians {
+            font-size: 65px;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 82px);
+            line-height: 1.05;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .subtitulo {
+            font-size: 22px;
+            color: #ccc;
+        }
+
+        .classificacao {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 17px 30px;
+
+            border: 2px solid #fff;
+            border-radius: 12px;
+
+            font-size: 25px;
+            font-weight: bold;
+
+            background: rgba(255,255,255,.08);
+
+            box-shadow:
+                0 0 25px rgba(255,255,255,.12);
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        section {
+            max-width: 1050px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .titulo {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 40px;
+            margin-bottom: 45px;
+        }
+
+        .titulo span {
+            color: #999;
+        }
+
+        .historia {
+            background: #121212;
+            padding: 45px;
+
+            border-radius: 20px;
+
+            border-left: 5px solid #fff;
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.5);
+        }
+
+        .historia p {
+            color: #ddd;
+            font-size: 18px;
+            margin-bottom: 23px;
+        }
+
+        .historia p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           DESTAQUE
+        ========================= */
+
+        .destaque {
+            margin: 60px 0;
+
+            padding: 55px 25px;
+
+            text-align: center;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #101010,
+                    #292929
+                );
+
+            box-shadow:
+                0 15px 50px rgba(0,0,0,.6);
+        }
+
+        .destaque h2 {
+            font-size: 43px;
+            margin-bottom: 15px;
+        }
+
+        .destaque p {
+            color: #bbb;
+            font-size: 19px;
+        }
+
+        /* =========================
+           MOMENTOS
+        ========================= */
+
+        .momentos {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+
+            gap: 25px;
+        }
+
+        .card {
+            background: #121212;
+
+            border-radius: 18px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            border: 1px solid #262626;
+
+            transition: .35s;
+
+            overflow: hidden;
+
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+
+            background: #1c1c1c;
+
+            box-shadow:
+                0 15px 35px rgba(255,255,255,.08);
+        }
+
+        .icone {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        /* =========================
+           PÁGINAS DAS FOTOS
+        ========================= */
+
+        .paginaFoto {
+            display: none;
+
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            background: #000;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            z-index: 9999;
+        }
+
+        .paginaFoto.ativa {
+            display: flex;
+        }
+
+        .paginaFoto img {
+            max-width: 100%;
+            max-height: 95vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+
+            box-shadow:
+                0 0 50px rgba(255,255,255,.15);
+
+            animation: aparecer .4s ease;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* =========================
+           BOTÃO VOLTAR
+        ========================= */
+
+        .voltar {
+            position: fixed;
+
+            top: 20px;
+            left: 20px;
+
+            background: rgba(255,255,255,.12);
+
+            color: white;
+
+            border: 1px solid #555;
+
+            padding: 12px 20px;
+
+            border-radius: 10px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(5px);
+
+            transition: .3s;
+
+            z-index: 10000;
+        }
+
+        .voltar:hover {
+            background: white;
+            color: black;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            background: #000;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            border-top: 1px solid #222;
+        }
+
+        footer p {
+            color: #888;
+        }
+
+        .vai-corinthians {
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                min-height: 100vh;
+                padding: 25px 15px;
+            }
+
+            .foto-principal {
+                height: 280px;
+            }
+
+            .corinthians {
+                font-size: 50px;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .subtitulo {
+                font-size: 18px;
+            }
+
+            .classificacao {
+                font-size: 18px;
+                padding: 14px 18px;
+            }
+
+            section {
+                padding: 60px 18px;
+            }
+
+            .titulo {
+                font-size: 30px;
+            }
+
+            .historia {
+                padding: 25px;
+            }
+
+            .historia p {
+                font-size: 16px;
+            }
+
+            .destaque h2 {
+                font-size: 30px;
+            }
+
+            .voltar {
+                top: 10px;
+                left: 10px;
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .paginaFoto {
+                padding: 10px;
+            }
+
+            .paginaFoto img {
+                max-width: 100%;
+                max-height: 90vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================
+         PÁGINA PRINCIPAL
+    ====================================== -->
+
+    <div id="paginaPrincipal">
+
+        <header>
+
+            <div class="hero">
+
+                <img
+                    src="images.jpeg"
+                    alt="Foto da noite do jogo do Corinthians"
+                    class="foto-principal"
+                >
+
+                <div class="corinthians">
+                    🖤🤍
+                </div>
+
+                <h1>
+                    Uma Noite Mágica
+                </h1>
+
+                <p class="subtitulo">
+                    Corinthians x Cruzeiro
+                    <br>
+                    Semifinal da Copa do Brasil
+                </p>
+
+                <div class="classificacao">
+                    ⚽ CORINTHIANS CLASSIFICADO! ⚽
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- HISTÓRIA -->
+
+        <section>
+
+            <h2 class="titulo">
+                A noite que
+                <span>eu nunca vou esquecer</span>
+            </h2>
+
+            <div class="historia">
+
+                <p>
+                    Ir ao jogo do Corinthians contra o Cruzeiro pela
+                    semifinal da Copa do Brasil foi uma experiência
+                    que eu vou levar para sempre comigo.
+                </p>
+
+                <p>
+                    Desde o momento em que cheguei ao estádio,
+                    dava para sentir que aquela não seria uma noite
+                    comum. A torcida cantava, pulava e empurrava
+                    o time a cada minuto.
+                </p>
+
+                <p>
+                    O estádio inteiro parecia estar respirando junto.
+                    Era uma energia difícil de explicar para quem
+                    não estava lá.
+                </p>
+
+                <p>
+                    Quando a bola rolou, a emoção tomou conta.
+                    Cada lance era vivido como se fosse o último.
+                    Eu gritava, vibrava e sofria junto com milhares
+                    de corinthianos.
+                </p>
+
+                <p>
+                    O sonho era chegar à grande decisão da Copa
+                    do Brasil, e ninguém queria desistir.
+                    A tensão aumentava a cada minuto.
+                </p>
+
+                <p>
+                    O jogo terminou levando tudo para os pênaltis.
+                    Nesse momento, meu coração disparou.
+                    Era impossível ficar tranquilo.
+                </p>
+
+                <p>
+                    Cada cobrança parecia durar uma eternidade.
+                    A torcida fazia barulho, os jogadores estavam
+                    concentrados e todos esperavam pelo momento
+                    decisivo.
+                </p>
+
+                <p>
+                    E então veio a classificação!
+                    O Corinthians venceu nos pênaltis e a festa
+                    tomou conta do estádio.
+                </p>
+
+                <p>
+                    Foi uma explosão de alegria. Pessoas se
+                    abraçando, gritando e comemorando juntas.
+                    Naquele momento, parecia que o estádio inteiro
+                    era uma só torcida.
+                </p>
+
+                <p>
+                    Eu estava ali. Vi tudo de perto. Senti a tensão,
+                    a emoção, os gritos e a felicidade da
+                    classificação.
+                </p>
+
+                <p>
+                    Foi simplesmente mágico. Uma daquelas noites
+                    que ficam guardadas para sempre na memória.
+                </p>
+
+            </div>
+
+
+            <!-- DESTAQUE -->
+
+            <div class="destaque">
+
+                <h2>
+                    🖤🤍 É O CORINTHIANS! 🤍🖤
+                </h2>
+
+                <p>
+                    Uma noite de emoção, sofrimento, fé
+                    e muita comemoração.
+                </p>
+
+                <p>
+                    Uma lembrança que vai ficar para sempre.
+                </p>
+
+            </div>
+
+
+            <!-- MOMENTOS -->
+
+            <h2 class="titulo">
+                Momentos da noite
+            </h2>
+
+            <div class="momentos">
+
+                <!-- ESTÁDIO -->
+
+                <div
+                    class="card"
+                    onclick="abrirEstadio()"
+                >
+
+                    <div class="icone">
+                        🏟️
+                    </div>
+
+                    <h3>
+                        O Estádio
+                    </h3>
+
+                    <p>
+                        A energia da torcida fazia o estádio
+                        inteiro tremer.
+                    </p>
+
+                    <p style="color: white; margin-top: 12px;">
+                        👆 Clique para ver
+                    </p>
+
+                </div>
+
+
+                <!-- JOGO -->
+
+                <div
+                    class="card"
+                    onclick="abrirJogo()"
+                >
+
+                    <div class="icone">
+                        ⚽
+                    </div>
+
+                    <h3>
+                        O Jogo
+                    </h3>
+
+                    <p>
+                        Cada lance aumentava ainda mais
+                        a emoção da semifinal.
+                    </p>
+
+                    <p style="color: white; margin-top: 12px;">
+                        👆 Clique para ver
+                    </p>
+
+                </div>
+
+
+                <!-- PÊNALTIS -->
+
+                <div
+                    class="card"
+                    onclick="abrirPenaltis()"
+                >
+
+                    <div class="icone">
+                        😱
+                    </div>
+
+                    <h3>
+                        Os Pênaltis
+                    </h3>
+
+                    <p>
+                        Nervos à flor da pele até a última
+                        cobrança.
+                    </p>
+
+                    <p style="color: white; margin-top: 12px;">
+                        👆 Clique para ver
+                    </p>
+
+                </div>
+
+
+                <!-- CLASSIFICAÇÃO -->
+
+                <div
+                    class="card"
+                    onclick="abrirClassificacao()"
+                >
+
+                    <div class="icone">
+                        🎉
+                    </div>
+
+                    <h3>
+                        A Classificação
+                    </h3>
+
+                    <p>
+                        O Corinthians venceu nos pênaltis
+                        e a festa começou!
+                    </p>
+
+                    <p style="color: white; margin-top: 12px;">
+                        👆 Clique para ver
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RODAPÉ -->
+
+        <footer>
+
+            <p>
+                Uma lembrança para guardar para sempre.
+            </p>
+
+            <p class="vai-corinthians">
+                Vai, Corinthians! 🖤🤍
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =====================================
+         PÁGINA DO ESTÁDIO
+    ====================================== -->
+
+    <div
+        id="paginaEstadio"
+        class="paginaFoto"
+    >
+
+        <button
+            class="voltar"
+            onclick="voltarPrincipal()"
+        >
+            ← Voltar
+        </button>
+
+        <img
+            src="images3.jpg"
+            alt="Foto do estádio"
+        >
+
+    </div>
+
+
+    <!-- =====================================
+         PÁGINA DO JOGO
+    ====================================== -->
+
+    <div
+        id="paginaJogo"
+        class="paginaFoto"
+    >
+
+        <button
+            class="voltar"
+            onclick="voltarPrincipal()"
+        >
+            ← Voltar
+        </button>
+
+        <img
+            src="images2.jpeg"
+            alt="Foto do jogo Corinthians x Cruzeiro"
+        >
+
+    </div>
+
+
+    <!-- =====================================
+         PÁGINA DOS PÊNALTIS
+    ====================================== -->
+
+    <div
+        id="paginaPenaltis"
+        class="paginaFoto"
+    >
+
+        <button
+            class="voltar"
+            onclick="voltarPrincipal()"
+        >
+            ← Voltar
+        </button>
+
+        <img
+            src="images55.jpeg"
+            alt="Foto dos pênaltis"
+        >
+
+    </div>
+
+
+    <!-- =====================================
+         PÁGINA DA CLASSIFICAÇÃO
+    ====================================== -->
+
+    <div
+        id="paginaClassificacao"
+        class="paginaFoto"
+    >
+
+        <button
+            class="voltar"
+            onclick="voltarPrincipal()"
+        >
+            ← Voltar
+        </button>
+
+        <img
+            src="elenco9.jpg"
+            alt="Foto da classificação"
+        >
+
+    </div>
+
+
+    <!-- =====================================
+         JAVASCRIPT DA PÁGINA
+    ====================================== -->
+
+    <script>
+
+        function fecharTodasAsFotos() {
+
+            document
+                .getElementById("paginaEstadio")
+                .classList.remove("ativa");
+
+            document
+                .getElementById("paginaJogo")
+                .classList.remove("ativa");
+
+            document
+                .getElementById("paginaPenaltis")
+                .classList.remove("ativa");
+
+            document
+                .getElementById("paginaClassificacao")
+                .classList.remove("ativa");
+        }
+
+
+        function abrirEstadio() {
+
+            document
+                .getElementById("paginaPrincipal")
+                .style.display = "none";
+
+            fecharTodasAsFotos();
+
+            document
+                .getElementById("paginaEstadio")
+                .classList.add("ativa");
+
+            window.scrollTo(0, 0);
+        }
+
+
+        function abrirJogo() {
+
+            document
+                .getElementById("paginaPrincipal")
+                .style.display = "none";
+
+            fecharTodasAsFotos();
+
+            document
+                .getElementById("paginaJogo")
+                .classList.add("ativa");
+
+            window.scrollTo(0, 0);
+        }
+
+
+        function abrirPenaltis() {
+
+            document
+                .getElementById("paginaPrincipal")
+                .style.display = "none";
+
+            fecharTodasAsFotos();
+
+            document
+                .getElementById("paginaPenaltis")
+                .classList.add("ativa");
+
+            window.scrollTo(0, 0);
+        }
+
+
+        function abrirClassificacao() {
+
+            document
+                .getElementById("paginaPrincipal")
+                .style.display = "none";
+
+            fecharTodasAsFotos();
+
+            document
+                .getElementById("paginaClassificacao")
+                .classList.add("ativa");
+
+            window.scrollTo(0, 0);
+        }
+
+
+        function voltarPrincipal() {
+
+            fecharTodasAsFotos();
+
+            document
+                .getElementById("paginaPrincipal")
+                .style.display = "block";
+
+            window.scrollTo(0, 0);
+        }
+
+    </script>
+
+
+    <!-- =====================================
+         VLibras
+    ====================================== -->
+
+    <div vw class="enabled">
+
+        <div vw-access-button class="active"></div>
+
+        <div vw-plugin-wrapper>
+
+            <div class="vw-plugin-top-wrapper"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script>
+        new window.VLibras.Widget(
+            'https://vlibras.gov.br/app'
+        );
+    </script>
+
+</body>
+</html>
