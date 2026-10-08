@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Uma Noite Mágica | Corinthians x Cruzeiro</title>
+
+<style>
+
+/* =====================================================
+   CONFIGURAÇÕES GERAIS
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: #fff;
+    line-height: 1.7;
+
+    transition:
+        background .25s,
+        color .25s,
+        font-size .25s;
+}
+
+
+/* =====================================================
+   CAPA
+===================================================== */
+
+header {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.72),
+            rgba(0,0,0,.95)
+        ),
+        radial-gradient(
+            circle at center,
+            #444,
+            #111 45%,
+            #000 100%
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border: 3px solid rgba(255,255,255,.035);
+    border-radius: 50%;
+
+    animation: girar 10s linear infinite;
+}
+
+header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border: 2px solid rgba(255,255,255,.025);
+
+    border-radius: 50%;
+
+    animation: girar 8s linear infinite reverse;
+}
+
+@keyframes girar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.hero {
+    width: 100%;
+    max-width: 950px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.foto-principal {
+    width: 100%;
+    max-width: 760px;
+
+    height: 440px;
+
+    object-fit: cover;
+
+    border-radius: 22px;
+
+    border: 3px solid #fff;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.9);
+
+    margin-bottom: 30px;
+}
+
+.corinthians {
+    font-size: 34px;
+    margin-bottom: 15px;
+
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.corinthians::after {
+    content: "CORINTHIANS";
+}
+
+h1 {
+    font-size: clamp(42px, 8vw, 82px);
+
+    line-height: 1.05;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    font-size: 22px;
+    color: #ccc;
+}
+
+.classificacao {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding: 17px 30px;
+
+    border: 2px solid #fff;
+
+    border-radius: 12px;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    background: rgba(255,255,255,.08);
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,.12);
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+section {
+    max-width: 1050px;
+
+    margin: auto;
+
+    padding: 90px 25px;
+}
+
+.titulo {
+    text-align: center;
+
+    text-transform: uppercase;
+
+    font-size: 40px;
+
+    margin-bottom: 45px;
+}
+
+.titulo span {
+    color: #999;
+}
+
+.historia {
+    background: #121212;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+    border-left: 5px solid #fff;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.5);
+}
+
+.historia p {
+    color: #ddd;
+
+    font-size: 18px;
+
+    margin-bottom: 23px;
+}
+
+.historia p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   DESTAQUE
+===================================================== */
+
+.destaque {
+    margin: 60px 0;
+
+    padding: 55px 25px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #101010,
+            #292929
+        );
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.6);
+}
+
+.destaque h2 {
+    font-size: 43px;
+
+    margin-bottom: 15px;
+}
+
+.destaque p {
+    color: #bbb;
+
+    font-size: 19px;
+}
+
+
+/* =====================================================
+   MOMENTOS
+===================================================== */
+
+.momentos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px, 1fr)
+        );
+
+    gap: 25px;
+}
+
+.card {
+    background: #121212;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border: 2px solid #262626;
+
+    transition:
+        transform .25s,
+        background .25s;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    min-height: 270px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    touch-action: manipulation;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+
+    background: #1c1c1c;
+
+    box-shadow:
+        0 15px 35px rgba(255,255,255,.08);
+}
+
+.icone {
+    font-size: 32px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #aaa;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   FOCO PELO TECLADO
+===================================================== */
+
+button:focus,
+.card:focus {
+    outline: 5px solid #00ffff;
+
+    outline-offset: 5px;
+}
+
+
+/* =====================================================
+   PÁGINAS DAS FOTOS
+===================================================== */
+
+.paginaFoto {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    background: #000;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 9999;
+}
+
+.paginaFoto.ativa {
+    display: flex;
+}
+
+.paginaFoto img {
+    max-width: 100%;
+
+    max-height: 95vh;
+
+    width: auto;
+
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 50px rgba(255,255,255,.15);
+}
+
+
+/* =====================================================
+   BOTÃO VOLTAR
+===================================================== */
+
+.voltar {
+    position: fixed;
+
+    top: 20px;
+
+    left: 20px;
+
+    background: #111;
+
+    color: white;
+
+    border: 4px solid white;
+
+    padding: 18px 28px;
+
+    border-radius: 16px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    min-width: 150px;
+
+    min-height: 70px;
+
+    z-index: 10000;
+
+    touch-action: manipulation;
+}
+
+.voltar:hover {
+    background: white;
+
+    color: black;
+}
+
+
+/* =====================================================
+   RODAPÉ
+===================================================== */
+
+footer {
+    background: #000;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    border-top: 1px solid #222;
+}
+
+footer p {
+    color: #888;
+}
+
+.vai-corinthians {
+    color: #fff;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    margin-top: 12px;
+}
+
+
+/* =====================================================
+   BOTÃO DE ACESSIBILIDADE
+===================================================== */
+
+.botao-acessibilidade {
+    position: fixed;
+
+    right: 18px;
+
+    bottom: 18px;
+
+    width: 150px;
+
+    height: 70px;
+
+    border-radius: 18px;
+
+    border: 5px solid white;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 20000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-shadow:
+        0 8px 35px rgba(0,0,0,.9);
+
+    transition:
+        transform .2s,
+        background .2s;
+
+    touch-action: manipulation;
+}
+
+.botao-acessibilidade:hover {
+    background: white;
+
+    color: black;
+
+    transform: scale(1.08);
+}
+
+.botao-acessibilidade:active {
+    transform: scale(.94);
+}
+
+
+/* =====================================================
+   PAINEL DE ACESSIBILIDADE
+===================================================== */
+
+.painel-acessibilidade {
+    position: fixed;
+
+    right: 18px;
+
+    bottom: 105px;
+
+    width: 440px;
+
+    max-width:
+        calc(100vw - 25px);
+
+    max-height:
+        calc(100vh - 130px);
+
+    overflow-y: auto;
+
+    background: #111;
+
+    color: white;
+
+    border: 4px solid white;
+
+    border-radius: 25px;
+
+    padding: 28px;
+
+    z-index: 19999;
+
+    box-shadow:
+        0 15px 50px rgba(0,0,0,.9);
+
+    display: none;
+}
+
+.painel-acessibilidade.aberto {
+    display: block;
+}
+
+.painel-acessibilidade h2 {
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+}
+
+.explicacao {
+    color: #ddd;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+}
+
+.grupo-acessibilidade {
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top:
+        2px solid #444;
+}
+
+.grupo-acessibilidade h3 {
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.painel-acessibilidade button {
+    width: 100%;
+
+    min-height: 78px;
+
+    padding: 18px;
+
+    margin-top: 12px;
+
+    border-radius: 16px;
+
+    border: 3px solid #666;
+
+    background: #222;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+.painel-acessibilidade button:hover {
+    background: white;
+
+    color: black;
+
+    border-color: white;
+}
+
+
+/* =====================================================
+   MODO AUTISMO
+===================================================== */
+
+body.modo-autismo {
+    scroll-behavior: auto;
+}
+
+body.modo-autismo *,
+body.modo-autismo *::before,
+body.modo-autismo *::after {
+    animation: none !important;
+
+    transition: none !important;
+}
+
+body.modo-autismo header::before,
+body.modo-autismo header::after {
+    display: none !important;
+}
+
+body.modo-autismo .card:hover {
+    transform: none !important;
+
+    box-shadow: none !important;
+}
+
+body.modo-autismo .card {
+    min-height: 320px;
+
+    padding: 40px 30px;
+
+    border: 3px solid #555;
+}
+
+body.modo-autismo .card h3 {
+    font-size: 32px;
+}
+
+body.modo-autismo .card p {
+    font-size: 21px;
+
+    line-height: 1.8;
+}
+
+body.modo-autismo .historia p {
+    font-size: 21px;
+
+    line-height: 1.9;
+
+    margin-bottom: 28px;
+}
+
+body.modo-autismo .destaque {
+    box-shadow: none;
+}
+
+body.modo-autismo .foto-principal {
+    box-shadow: none;
+}
+
+body.modo-autismo .botao-acessibilidade {
+    animation: none !important;
+}
+
+body.modo-autismo .painel-acessibilidade {
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   MODO CALMO
+===================================================== */
+
+body.modo-calmo *,
+body.modo-calmo *::before,
+body.modo-calmo *::after {
+    animation: none !important;
+
+    transition: none !important;
+}
+
+body.modo-calmo header::before,
+body.modo-calmo header::after {
+    display: none;
+}
+
+body.modo-calmo .card:hover {
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   DISLEXIA
+===================================================== */
+
+body.modo-dislexia p,
+body.modo-dislexia h1,
+body.modo-dislexia h2,
+body.modo-dislexia h3 {
+    letter-spacing: .08em;
+
+    word-spacing: .12em;
+
+    line-height: 1.9;
+}
+
+body.modo-dislexia .historia p {
+    font-size: 21px;
+
+    margin-bottom: 30px;
+}
+
+body.modo-dislexia .card p {
+    font-size: 19px;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   TEXTO GRANDE
+===================================================== */
+
+body.texto-grande {
+    font-size: 140%;
+}
+
+body.texto-grande .historia {
+    padding: 55px;
+}
+
+body.texto-grande .historia p {
+    font-size: 28px;
+
+    line-height: 1.9;
+}
+
+body.texto-grande .card h3 {
+    font-size: 36px;
+}
+
+body.texto-grande .card p {
+    font-size: 24px;
+
+    line-height: 1.7;
+}
+
+body.texto-grande .subtitulo {
+    font-size: 29px;
+}
+
+body.texto-grande .classificacao {
+    font-size: 31px;
+}
+
+
+/* =====================================================
+   BAIXA VISÃO
+===================================================== */
+
+body.baixa-visao {
+    font-size: 150%;
+}
+
+body.baixa-visao .historia p {
+    font-size: 30px;
+
+    line-height: 2;
+}
+
+body.baixa-visao .card h3 {
+    font-size: 40px;
+}
+
+body.baixa-visao .card p {
+    font-size: 26px;
+
+    line-height: 1.9;
+}
+
+body.baixa-visao .titulo {
+    font-size: 52px;
+}
+
+body.baixa-visao .subtitulo {
+    font-size: 32px;
+}
+
+
+/* =====================================================
+   ALTO CONTRASTE
+===================================================== */
+
+body.alto-contraste {
+    background: #000;
+
+    color: #fff;
+}
+
+body.alto-contraste .historia,
+body.alto-contraste .card,
+body.alto-contraste .destaque {
+    background: #000;
+
+    border: 4px solid white;
+}
+
+body.alto-contraste .historia p,
+body.alto-contraste .card p,
+body.alto-contraste .subtitulo {
+    color: white;
+}
+
+
+/* =====================================================
+   BOTÕES GRANDES
+===================================================== */
+
+body.botoes-grandes .card {
+    min-height: 350px;
+
+    padding: 45px 30px;
+
+    border: 4px solid #555;
+
+    border-radius: 24px;
+}
+
+body.botoes-grandes .card .icone {
+    font-size: 28px;
+}
+
+body.botoes-grandes .card h3 {
+    font-size: 36px;
+}
+
+body.botoes-grandes .card p {
+    font-size: 23px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   DEFICIÊNCIA FÍSICA
+===================================================== */
+
+body.deficiencia-fisica .card {
+    min-height: 380px;
+
+    padding: 50px 35px;
+}
+
+body.deficiencia-fisica .painel-acessibilidade button {
+    min-height: 90px;
+
+    font-size: 23px;
+}
+
+
+/* =====================================================
+   MODO LEITURA
+===================================================== */
+
+body.modo-leitura .historia {
+    max-width: 900px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+}
+
+body.modo-leitura .historia p {
+    font-size: 25px;
+
+    line-height: 2.1;
+
+    margin-bottom: 32px;
+}
+
+
+/* =====================================================
+   SURDEZ
+===================================================== */
+
+.aviso-visual {
+    display: none;
+
+    background: #004cff;
+
+    color: white;
+
+    border: 4px solid white;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    margin: 20px auto;
+
+    max-width: 800px;
+
+    text-align: center;
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+body.modo-surdez .aviso-visual {
+    display: block;
+}
+
+body.modo-surdez .classificacao {
+    border: 4px solid #00ffff;
+
+    background: #003cff;
+}
+
+body.modo-surdez .card {
+    border: 4px solid #00ffff;
+}
+
+
+/* =====================================================
+   REDUZIR MOVIMENTO DO SISTEMA
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation: none !important;
+
+        transition: none !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        min-height: 100vh;
+
+        padding: 25px 15px;
+    }
+
+    .foto-principal {
+        height: 280px;
+    }
+
+    .corinthians {
+        font-size: 25px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .subtitulo {
+        font-size: 18px;
+    }
+
+    .classificacao {
+        font-size: 18px;
+
+        padding: 14px 18px;
+    }
+
+    section {
+        padding: 60px 18px;
+    }
+
+    .titulo {
+        font-size: 30px;
+    }
+
+    .historia {
+        padding: 25px;
+    }
+
+    .historia p {
+        font-size: 16px;
+    }
+
+    .destaque h2 {
+        font-size: 30px;
+    }
+
+    .voltar {
+        top: 10px;
+
+        left: 10px;
+
+        min-width: 130px;
+
+        min-height: 60px;
+
+        padding: 14px 20px;
+
+        font-size: 18px;
+    }
+
+    .paginaFoto {
+        padding: 10px;
+    }
+
+    .paginaFoto img {
+        max-width: 100%;
+
+        max-height: 90vh;
+    }
+
+    .botao-acessibilidade {
+        width: 140px;
+
+        height: 60px;
+
+        right: 10px;
+
+        bottom: 10px;
+
+        font-size: 17px;
+    }
+
+    .painel-acessibilidade {
+        right: 10px;
+
+        bottom: 80px;
+
+        width:
+            calc(100vw - 20px);
+
+        max-height:
+            calc(100vh - 95px);
+
+        padding: 22px;
+    }
+
+}
+
+
+/* =====================================================
+   FIM DO CSS
+===================================================== */
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PÁGINA PRINCIPAL
+===================================================== -->
+
+<div id="paginaPrincipal">
+
+<header>
+
+<div class="hero">
+
+<img
+    src="images.jpeg"
+    alt="Foto da noite do jogo do Corinthians"
+    class="foto-principal"
+>
+
+
+<div
+    class="corinthians"
+    aria-hidden="true"
+>
+</div>
+
+
+<h1>
+    Uma Noite Mágica
+</h1>
+
+
+<p class="subtitulo">
+
+    Corinthians x Cruzeiro
+
+    <br>
+
+    Semifinal da Copa do Brasil
+
+</p>
+
+
+<div class="classificacao">
+
+    CORINTHIANS CLASSIFICADO!
+
+</div>
+
+
+<div class="aviso-visual">
+
+    As informações importantes
+    também aparecem de forma visual.
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HISTÓRIA
+===================================================== -->
+
+<section>
+
+<h2 class="titulo">
+
+    A noite que
+
+    <span>
+        eu nunca vou esquecer
+    </span>
+
+</h2>
+
+
+<div class="historia">
+
+<p>
+    Ir ao jogo do Corinthians contra o Cruzeiro pela
+    semifinal da Copa do Brasil foi uma experiência
+    que eu vou levar para sempre comigo.
+</p>
+
+<p>
+    Desde o momento em que cheguei ao estádio,
+    dava para sentir que aquela não seria uma noite
+    comum. A torcida cantava, pulava e empurrava
+    o time a cada minuto.
+</p>
+
+<p>
+    O estádio inteiro parecia estar respirando junto.
+    Era uma energia difícil de explicar para quem
+    não estava lá.
+</p>
+
+<p>
+    Quando a bola rolou, a emoção tomou conta.
+    Cada lance era vivido como se fosse o último.
+    Eu gritava, vibrava e sofria junto com milhares
+    de corinthianos.
+</p>
+
+<p>
+    O sonho era chegar à grande decisão da Copa
+    do Brasil, e ninguém queria desistir.
+    A tensão aumentava a cada minuto.
+</p>
+
+<p>
+    O jogo terminou levando tudo para os pênaltis.
+    Nesse momento, meu coração disparou.
+    Era impossível ficar tranquilo.
+</p>
+
+<p>
+    Cada cobrança parecia durar uma eternidade.
+    A torcida fazia barulho, os jogadores estavam
+    concentrados e todos esperavam pelo momento
+    decisivo.
+</p>
+
+<p>
+    E então veio a classificação!
+    O Corinthians venceu nos pênaltis e a festa
+    tomou conta do estádio.
+</p>
+
+<p>
+    Foi uma explosão de alegria. Pessoas se
+    abraçando, gritando e comemorando juntas.
+    Naquele momento, parecia que o estádio inteiro
+    era uma só torcida.
+</p>
+
+<p>
+    Eu estava ali. Vi tudo de perto. Senti a tensão,
+    a emoção, os gritos e a felicidade da
+    classificação.
+</p>
+
+<p>
+    Foi simplesmente mágico. Uma daquelas noites
+    que ficam guardadas para sempre na memória.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     DESTAQUE
+===================================================== -->
+
+<div class="destaque">
+
+<h2>
+    É O CORINTHIANS!
+</h2>
+
+<p>
+    Uma noite de emoção, sofrimento, fé
+    e muita comemoração.
+</p>
+
+<p>
+    Uma lembrança que vai ficar para sempre.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     MOMENTOS
+===================================================== -->
+
+<h2 class="titulo">
+    Momentos da noite
+</h2>
+
+
+<div class="momentos">
+
+
+<div
+    class="card"
+    tabindex="0"
+    role="button"
+    aria-label="Abrir foto do estádio"
+    onclick="abrirEstadio()"
+    onkeydown="ativarCard(event, abrirEstadio)"
+>
+
+<div class="icone" aria-hidden="true">
+    ESTÁDIO
+</div>
+
+<h3>
+    O Estádio
+</h3>
+
+<p>
+    A energia da torcida fazia o estádio
+    inteiro tremer.
+</p>
+
+<p style="color:white;margin-top:12px;">
+    Selecionar
+</p>
+
+</div>
+
+
+<div
+    class="card"
+    tabindex="0"
+    role="button"
+    aria-label="Abrir foto do jogo"
+    onclick="abrirJogo()"
+    onkeydown="ativarCard(event, abrirJogo)"
+>
+
+<div class="icone" aria-hidden="true">
+    JOGO
+</div>
+
+<h3>
+    O Jogo
+</h3>
+
+<p>
+    Cada lance aumentava ainda mais
+    a emoção da semifinal.
+</p>
+
+<p style="color:white;margin-top:12px;">
+    Selecionar
+</p>
+
+</div>
+
+
+<div
+    class="card"
+    tabindex="0"
+    role="button"
+    aria-label="Abrir foto dos pênaltis"
+    onclick="abrirPenaltis()"
+    onkeydown="ativarCard(event, abrirPenaltis)"
+>
+
+<div class="icone" aria-hidden="true">
+    PÊNALTIS
+</div>
+
+<h3>
+    Os Pênaltis
+</h3>
+
+<p>
+    Nervos à flor da pele até a última
+    cobrança.
+</p>
+
+<p style="color:white;margin-top:12px;">
+    Selecionar
+</p>
+
+</div>
+
+
+<div
+    class="card"
+    tabindex="0"
+    role="button"
+    aria-label="Abrir foto da classificação"
+    onclick="abrirClassificacao()"
+    onkeydown="ativarCard(event, abrirClassificacao)"
+>
+
+<div class="icone" aria-hidden="true">
+    CLASSIFICAÇÃO
+</div>
+
+<h3>
+    A Classificação
+</h3>
+
+<p>
+    O Corinthians venceu nos pênaltis
+    e a festa começou!
+</p>
+
+<p style="color:white;margin-top:12px;">
+    Selecionar
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+    Uma lembrança para guardar para sempre.
+</p>
+
+<p class="vai-corinthians">
+    Vai, Corinthians!
+</p>
+
+</footer>
+
+</div>
+
+
+<!-- =====================================================
+     FOTOS
+===================================================== -->
+
+<div
+    id="paginaEstadio"
+    class="paginaFoto"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Foto do estádio"
+>
+
+<button
+    class="voltar"
+    onclick="voltarPrincipal()"
+>
+    Voltar
+</button>
+
+<img
+    src="images3.jpg"
+    alt="Foto do estádio"
+>
+
+</div>
+
+
+<div
+    id="paginaJogo"
+    class="paginaFoto"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Foto do jogo"
+>
+
+<button
+    class="voltar"
+    onclick="voltarPrincipal()"
+>
+    Voltar
+</button>
+
+<img
+    src="images2.jpeg"
+    alt="Foto do jogo Corinthians x Cruzeiro"
+>
+
+</div>
+
+
+<div
+    id="paginaPenaltis"
+    class="paginaFoto"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Foto dos pênaltis"
+>
+
+<button
+    class="voltar"
+    onclick="voltarPrincipal()"
+>
+    Voltar
+</button>
+
+<img
+    src="images55.jpeg"
+    alt="Foto dos pênaltis"
+>
+
+</div>
+
+
+<div
+    id="paginaClassificacao"
+    class="paginaFoto"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Foto da classificação"
+>
+
+<button
+    class="voltar"
+    onclick="voltarPrincipal()"
+>
+    Voltar
+</button>
+
+<img
+    src="elenco9.jpg"
+    alt="Foto da classificação"
+>
+
+</div>
+
+
+<!-- =====================================================
+     BOTÃO DE ACESSIBILIDADE
+===================================================== -->
+
+<button
+    id="botaoAcessibilidade"
+    class="botao-acessibilidade"
+    aria-label="Abrir opções de acessibilidade"
+    aria-expanded="false"
+    aria-controls="painelAcessibilidade"
+>
+    Acessibilidade
+</button>
+
+
+<!-- =====================================================
+     PAINEL DE ACESSIBILIDADE
+===================================================== -->
+
+<div
+    id="painelAcessibilidade"
+    class="painel-acessibilidade"
+>
+
+<h2>
+    Acessibilidade
+</h2>
+
+
+<p class="explicacao">
+
+    Escolha as opções que deixam a página
+    mais confortável e fácil de usar.
+
+</p>
+
+
+<!-- AUTISMO -->
+
+<div class="grupo-acessibilidade">
+
+<h3>
+    Autismo e conforto sensorial
+</h3>
+
+<button onclick="alternarAutismo()">
+    Modo para pessoas autistas
+</button>
+
+<button onclick="alternarModoCalmo()">
+    Modo calmo
+</button>
+
+</div>
+
+
+<!-- DISLEXIA -->
+
+<div class="grupo-acessibilidade">
+
+<h3>
+    Dislexia
+</h3>
+
+<button onclick="alternarDislexia()">
+    Facilitar leitura
+</button>
+
+<button onclick="alternarLeitura()">
+    Aumentar espaçamento
+</button>
+
+</div>
+
+
+<!-- BAIXA VISÃO -->
+
+<div class="grupo-acessibilidade">
+
+<h3>
+    Baixa visão
+</h3>
+
+<button onclick="alternarTextoGrande()">
+    Letras muito maiores
+</button>
+
+<button onclick="alternarBaixaVisao()">
+    Modo baixa visão
+</button>
+
+<button onclick="alternarContraste()">
+    Alto contraste
+</button>
+
+</div>
+
+
+<!-- DEFICIÊNCIA FÍSICA -->
+
+<div class="grupo-acessibilidade">
+
+<h3>
+    Deficiência física
+</h3>
+
+<button onclick="alternarBotoes()">
+    Botões maiores
+</button>
+
+<button onclick="alternarDeficienciaFisica()">
+    Área de toque ampliada
+</button>
+
+</div>
+
+
+<!-- SURDEZ -->
+
+<div class="grupo-acessibilidade">
+
+<h3>
+    Surdez
+</h3>
+
+<button onclick="alternarSurdez()">
+    Informações visuais
+</button>
+
+</div>
+
+
+<!-- LEITURA -->
+
+<div class="grupo-acessibilidade">
+
+<h3>
+    Leitura
+</h3>
+
+<button onclick="lerTextoSelecionado()">
+    Ler texto selecionado
+</button>
+
+</div>
+
+
+<!-- RESTAURAR -->
+
+<div class="grupo-acessibilidade">
+
+<button onclick="restaurarAcessibilidade()">
+    Voltar ao normal
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     VLibras
+===================================================== -->
+
+<div vw class="enabled">
+
+<div
+    vw-access-button
+    class="active"
+>
+</div>
+
+<div vw-plugin-wrapper>
+
+<div class="vw-plugin-top-wrapper">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   FOTOS
+===================================================== */
+
+function fecharTodasAsFotos() {
+
+    document
+        .getElementById("paginaEstadio")
+        .classList.remove("ativa");
+
+    document
+        .getElementById("paginaJogo")
+        .classList.remove("ativa");
+
+    document
+        .getElementById("paginaPenaltis")
+        .classList.remove("ativa");
+
+    document
+        .getElementById("paginaClassificacao")
+        .classList.remove("ativa");
+
+}
+
+
+function abrirFoto(id) {
+
+    document
+        .getElementById("paginaPrincipal")
+        .style.display = "none";
+
+    fecharTodasAsFotos();
+
+    const pagina =
+        document.getElementById(id);
+
+    pagina.classList.add("ativa");
+
+    pagina
+        .querySelector(".voltar")
+        .focus();
+
+    window.scrollTo(0,0);
+
+}
+
+
+function abrirEstadio() {
+
+    abrirFoto("paginaEstadio");
+
+}
+
+
+function abrirJogo() {
+
+    abrirFoto("paginaJogo");
+
+}
+
+
+function abrirPenaltis() {
+
+    abrirFoto("paginaPenaltis");
+
+}
+
+
+function abrirClassificacao() {
+
+    abrirFoto("paginaClassificacao");
+
+}
+
+
+function voltarPrincipal() {
+
+    fecharTodasAsFotos();
+
+    document
+        .getElementById("paginaPrincipal")
+        .style.display = "block";
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   TECLADO
+===================================================== */
+
+function ativarCard(evento, funcao) {
+
+    if (
+        evento.key === "Enter" ||
+        evento.key === " "
+    ) {
+
+        evento.preventDefault();
+
+        funcao();
+
+    }
+
+}
+
+
+/* =====================================================
+   PAINEL
+===================================================== */
+
+const botao =
+    document.getElementById(
+        "botaoAcessibilidade"
+    );
+
+const painel =
+    document.getElementById(
+        "painelAcessibilidade"
+    );
+
+
+botao.addEventListener(
+    "click",
+    function() {
+
+        const aberto =
+            painel
+                .classList
+                .toggle("aberto");
+
+        botao.setAttribute(
+            "aria-expanded",
+            aberto
+        );
+
+    }
+);
+
+
+/* =====================================================
+   PREFERÊNCIAS
+===================================================== */
+
+const classesAcessibilidade = [
+
+    "modo-autismo",
+
+    "modo-calmo",
+
+    "texto-grande",
+
+    "alto-contraste",
+
+    "botoes-grandes",
+
+    "modo-leitura",
+
+    "modo-dislexia",
+
+    "baixa-visao",
+
+    "deficiencia-fisica",
+
+    "modo-surdez"
+
+];
+
+
+function salvarPreferencias() {
+
+    classesAcessibilidade.forEach(
+        function(nome) {
+
+            localStorage.setItem(
+                nome,
+                document.body
+                    .classList
+                    .contains(nome)
+            );
+
+        }
+    );
+
+}
+
+
+function carregarPreferencias() {
+
+    classesAcessibilidade.forEach(
+        function(nome) {
+
+            if (
+                localStorage.getItem(nome)
+                === "true"
+            ) {
+
+                document.body
+                    .classList
+                    .add(nome);
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   AUTISMO
+===================================================== */
+
+function alternarAutismo() {
+
+    document.body
+        .classList
+        .toggle("modo-autismo");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   MODO CALMO
+===================================================== */
+
+function alternarModoCalmo() {
+
+    document.body
+        .classList
+        .toggle("modo-calmo");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   DISLEXIA
+===================================================== */
+
+function alternarDislexia() {
+
+    document.body
+        .classList
+        .toggle("modo-dislexia");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   TEXTO GRANDE
+===================================================== */
+
+function alternarTextoGrande() {
+
+    document.body
+        .classList
+        .toggle("texto-grande");
+
+    document.body
+        .classList
+        .add("botoes-grandes");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   BAIXA VISÃO
+===================================================== */
+
+function alternarBaixaVisao() {
+
+    document.body
+        .classList
+        .toggle("baixa-visao");
+
+    document.body
+        .classList
+        .add("alto-contraste");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   CONTRASTE
+===================================================== */
+
+function alternarContraste() {
+
+    document.body
+        .classList
+        .toggle("alto-contraste");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   BOTÕES GRANDES
+===================================================== */
+
+function alternarBotoes() {
+
+    document.body
+        .classList
+        .toggle("botoes-grandes");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   DEFICIÊNCIA FÍSICA
+===================================================== */
+
+function alternarDeficienciaFisica() {
+
+    document.body
+        .classList
+        .toggle("deficiencia-fisica");
+
+    document.body
+        .classList
+        .add("botoes-grandes");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   LEITURA
+===================================================== */
+
+function alternarLeitura() {
+
+    document.body
+        .classList
+        .toggle("modo-leitura");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   SURDEZ
+===================================================== */
+
+function alternarSurdez() {
+
+    document.body
+        .classList
+        .toggle("modo-surdez");
+
+    salvarPreferencias();
+
+}
+
+
+/* =====================================================
+   LEITOR DE TEXTO
+===================================================== */
+
+function lerTextoSelecionado() {
+
+    if (
+        !("speechSynthesis" in window)
+    ) {
+
+        alert(
+            "Seu navegador não possui leitura de texto."
+        );
+
+        return;
+
+    }
+
+
+    const texto =
+        window
+            .getSelection()
+            .toString()
+            .trim();
+
+
+    if (!texto) {
+
+        alert(
+            "Selecione um texto primeiro."
+        );
+
+        return;
+
+    }
+
+
+    window
+        .speechSynthesis
+        .cancel();
+
+
+    const fala =
+        new SpeechSynthesisUtterance(
+            texto
+        );
+
+
+    fala.lang = "pt-BR";
+
+    fala.rate = .8;
+
+    fala.pitch = 1;
+
+
+    window
+        .speechSynthesis
+        .speak(fala);
+
+}
+
+
+/* =====================================================
+   TECLA ESC
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(evento) {
+
+        if (
+            evento.key === "Escape"
+        ) {
+
+            if (
+                painel
+                    .classList
+                    .contains("aberto")
+            ) {
+
+                painel
+                    .classList
+                    .remove("aberto");
+
+                botao.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+            else {
+
+                voltarPrincipal();
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   RESTAURAR
+===================================================== */
+
+function restaurarAcessibilidade() {
+
+    classesAcessibilidade.forEach(
+        function(nome) {
+
+            document.body
+                .classList
+                .remove(nome);
+
+            localStorage.removeItem(nome);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+carregarPreferencias();
+
+</script>
+
+
+<!-- =====================================================
+     VLibras
+===================================================== -->
+
+<script
+    src="https://vlibras.gov.br/app/vlibras-plugin.js"
+>
+</script>
+
+
+<script>
+
+new window.VLibras.Widget(
+    'https://vlibras.gov.br/app'
+);
+
+</script>
+
+
+</body>
+
+</html>
